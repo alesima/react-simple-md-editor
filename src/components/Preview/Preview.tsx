@@ -47,4 +47,4 @@ const Preview: React.FC<PreviewProps> = ({ value }) => (
   </div>
 );
 
-export default Preview;
+export default React.memo(Preview);

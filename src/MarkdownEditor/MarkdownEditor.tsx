@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import Toolbar from "../components/Toolbar/Toolbar";
 import Editor from "../components/Editor/Editor";
 import Preview from "../components/Preview/Preview";
@@ -32,14 +32,28 @@ const MarkdownEditor: React.FC<MarkdownEditorProps> = ({
     setSelectionEnd,
   } = useMarkdown(value);
 
-  const handleInsertMarkdown = (prefix: string, suffix = "") => {
-    onChange(insertMarkdown(prefix, suffix));
-  };
+  const handleInsertMarkdown = useCallback(
+    (prefix: string, suffix = "") => {
+      onChange(insertMarkdown(prefix, suffix));
+    },
+    [onChange, insertMarkdown]
+  );
 
   const toolbarButtons = useToolbar(config, handleInsertMarkdown);
 
+  const themeStyle = {
+    "--toolbar-bg": config.colors?.toolbarBg,
+    "--toolbar-btn-bg": config.colors?.toolbarBtnBg,
+    "--toolbar-btn-hover-bg": config.colors?.toolbarBtnHoverBg,
+    "--editor-bg": config.colors?.editorBg,
+    "--preview-bg": config.colors?.previewBg,
+  } as React.CSSProperties;
+
   return (
-    <div className={`markdown-editor ${isFullscreen ? "fullscreen" : ""}`}>
+    <div
+      className={`markdown-editor ${isFullscreen ? "fullscreen" : ""}`}
+      style={themeStyle}
+    >
       <Toolbar
         buttons={toolbarButtons}
         onTogglePreview={togglePreview}

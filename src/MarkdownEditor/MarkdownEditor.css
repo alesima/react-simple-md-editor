@@ -6,7 +6,7 @@
   --preview-bg: var(--preview-bg, #f8f8f8);
 } /* General styles */
 
-.markdown-editor.fixed {
+.markdown-editor.fullscreen {
   position: fixed;
   top: 0;
   left: 0;

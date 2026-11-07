@@ -2,6 +2,12 @@
 
 A React component to edit and preview Markdown, with toolbar presets and Mermaid diagram support.
 
+![Editor](https://raw.githubusercontent.com/alesima/react-simple-markdown-editor/master/assets/screenshots/editor.png)
+*Editing with the default toolbar*
+
+![Preview](https://raw.githubusercontent.com/alesima/react-simple-markdown-editor/master/assets/screenshots/preview.png)
+*Live preview with rendered Mermaid diagram*
+
 ## Installation
 
 ```bash

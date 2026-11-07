@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.json",
+  "include": ["demo/**/*", "src/**/*"],
+  "exclude": ["node_modules", "**/*.test.*", "src/tests"],
+  "compilerOptions": {
+    "types": [],
+    "declaration": false,
+    "declarationMap": false,
+    "sourceMap": false,
+    "outDir": "./demo",
+    "declarationDir": "./demo"
+  }
+}

@@ -103,4 +103,14 @@ describe("MarkdownEditor", () => {
     expect(screen.getByText("Markdown content")).toBeInTheDocument();
     expect(screen.queryByRole("textbox")).not.toBeInTheDocument();
   });
+
+  test("syncs when the parent passes a new value", () => {
+    const { rerender } = render(
+      <MarkdownEditor value='First' onChange={mockOnChange} />
+    );
+    expect(screen.getByRole("textbox")).toHaveValue("First");
+
+    rerender(<MarkdownEditor value='Second' onChange={mockOnChange} />);
+    expect(screen.getByRole("textbox")).toHaveValue("Second");
+  });
 });
