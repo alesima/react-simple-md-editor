@@ -1,21 +1,21 @@
-# react-simple-markdown-editor
+# react-simple-md-editor
 
 A React component to edit and preview Markdown, with toolbar presets and Mermaid diagram support.
 
-![Editor](https://raw.githubusercontent.com/alesima/react-simple-markdown-editor/master/assets/screenshots/editor.png)
+![Editor](https://raw.githubusercontent.com/alesima/react-simple-md-editor/master/assets/screenshots/editor.png)
 *Editing with the default toolbar (light theme)*
 
-![Preview](https://raw.githubusercontent.com/alesima/react-simple-markdown-editor/master/assets/screenshots/preview.png)
+![Preview](https://raw.githubusercontent.com/alesima/react-simple-md-editor/master/assets/screenshots/preview.png)
 *Live preview with rendered Mermaid diagram*
 
 ## Themes
 
 Built-in themes via `config.theme`: `light` (default), `dark`, `dracula`, `minimal` — or `custom` with your own colors:
 
-![Dark preview](https://raw.githubusercontent.com/alesima/react-simple-markdown-editor/master/assets/screenshots/preview-dark.png)
+![Dark preview](https://raw.githubusercontent.com/alesima/react-simple-md-editor/master/assets/screenshots/preview-dark.png)
 *Dark theme preview*
 
-![Dracula editor](https://raw.githubusercontent.com/alesima/react-simple-markdown-editor/master/assets/screenshots/editor-dracula.png)
+![Dracula editor](https://raw.githubusercontent.com/alesima/react-simple-md-editor/master/assets/screenshots/editor-dracula.png)
 *Dracula theme editor*
 
 ```tsx
@@ -39,7 +39,7 @@ Built-in themes via `config.theme`: `light` (default), `dark`, `dracula`, `minim
 ## Installation
 
 ```bash
-npm install react-simple-markdown-editor
+npm install react-simple-md-editor
 ```
 
 Requires `react >= 18` and `react-dom >= 18` (peer dependencies). Markdown
@@ -56,7 +56,7 @@ Styles are injected automatically; no CSS import needed.
 
 ```tsx
 import { useState } from "react";
-import { MarkdownEditor } from "react-simple-markdown-editor";
+import { MarkdownEditor } from "react-simple-md-editor";
 
 export function App() {
   const [value, setValue] = useState("# Hello\n\nEdit me!");

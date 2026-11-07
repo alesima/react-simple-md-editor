@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { createRoot } from "react-dom/client";
 import { MarkdownEditor } from "../src/index";
 
-const SAMPLE = `# react-simple-markdown-editor
+const SAMPLE = `# react-simple-md-editor
 
 Write **bold**, *italic* and ~~strikethrough~~ text, with live preview.
 
