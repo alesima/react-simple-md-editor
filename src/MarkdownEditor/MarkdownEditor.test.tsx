@@ -113,4 +113,37 @@ describe("MarkdownEditor", () => {
     rerender(<MarkdownEditor value='Second' onChange={mockOnChange} />);
     expect(screen.getByRole("textbox")).toHaveValue("Second");
   });
+
+  test("applies the configured theme", () => {
+    const { container, rerender } = render(
+      <MarkdownEditor value='x' onChange={mockOnChange} />
+    );
+    expect(container.firstChild).toHaveAttribute("data-theme", "light");
+
+    rerender(
+      <MarkdownEditor
+        value='x'
+        onChange={mockOnChange}
+        config={{ toolbarConfig: "default", theme: "dracula" }}
+      />
+    );
+    expect(container.firstChild).toHaveAttribute("data-theme", "dracula");
+  });
+
+  test("applies custom colors as CSS variables", () => {
+    const { container } = render(
+      <MarkdownEditor
+        value='x'
+        onChange={mockOnChange}
+        config={{
+          toolbarConfig: "default",
+          theme: "custom",
+          colors: { accent: "#ff0000" },
+        }}
+      />
+    );
+    const editor = container.firstChild as HTMLElement;
+    expect(editor).toHaveAttribute("data-theme", "custom");
+    expect(editor.style.getPropertyValue("--me-accent")).toBe("#ff0000");
+  });
 });

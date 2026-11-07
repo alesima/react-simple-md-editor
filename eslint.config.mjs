@@ -8,7 +8,13 @@ import eslintConfigPrettier from "eslint-config-prettier";
 
 export default [
   {
-    ignores: ["dist/**", "coverage/**", ".rollup.cache/**", "node_modules/**"],
+    ignores: [
+      "dist/**",
+      "coverage/**",
+      ".rollup.cache/**",
+      "node_modules/**",
+      "demo/bundle.js",
+    ],
   },
   {
     files: ["**/*.{js,jsx,ts,tsx,mjs,cjs}"],

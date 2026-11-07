@@ -4,25 +4,31 @@ export interface ToolbarButtonConfig {
   title: string;
 }
 
+export type MarkdownEditorTheme =
+  | "light"
+  | "dark"
+  | "minimal"
+  | "dracula"
+  | "custom";
+
 export interface MarkdownEditorConfig {
   toolbarConfig?: "compact" | "default" | "full" | "custom";
   customToolbarButtons?: string[];
+  theme?: MarkdownEditorTheme;
   colors?: {
     toolbarBg?: string;
     toolbarBtnBg?: string;
+    toolbarBtnFg?: string;
     toolbarBtnHoverBg?: string;
     editorBg?: string;
+    editorFg?: string;
     previewBg?: string;
+    previewFg?: string;
+    accent?: string;
   };
 }
 
 export const defaultConfig: MarkdownEditorConfig = {
   toolbarConfig: "default",
-  colors: {
-    toolbarBg: "#f3f4f6",
-    toolbarBtnBg: "white",
-    toolbarBtnHoverBg: "#e5e7eb",
-    editorBg: "white",
-    previewBg: "#f8f8f8",
-  },
+  theme: "light",
 };

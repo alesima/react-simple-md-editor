@@ -1,11 +1,19 @@
 .editor {
   width: 100%;
-  padding: 0.5rem 0.75rem;
-  border: 1px solid #e5e7eb;
-  border-radius: 0.375rem;
+  box-sizing: border-box;
+  padding: 0.75rem;
+  color: var(--editor-fg);
+  background-color: var(--editor-bg);
+  border: 1px solid var(--me-border);
+  border-radius: var(--me-radius);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  resize: vertical;
 }
 
 .editor:focus {
   outline: none;
-  box-shadow: 0 0 0 1px #6366f1;
+  border-color: var(--me-accent);
+  box-shadow: 0 0 0 1px var(--me-accent);
 }

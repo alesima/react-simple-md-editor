@@ -34,9 +34,17 @@ graph TD;
 
 function Demo() {
   const [value, setValue] = useState(SAMPLE);
+  const theme = new URLSearchParams(window.location.search).get("theme") || "light";
+  const preview = new URLSearchParams(window.location.search).get("preview") === "1";
   return (
     <div style={{ maxWidth: 960, margin: "24px auto", padding: "0 16px" }}>
-      <MarkdownEditor value={value} onChange={setValue} rows={14} />
+      <MarkdownEditor
+        value={value}
+        onChange={setValue}
+        rows={14}
+        previewMode={preview}
+        config={{ toolbarConfig: "default", theme: theme as "light" | "dark" | "minimal" | "dracula" }}
+      />
     </div>
   );
 }

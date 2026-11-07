@@ -1,10 +1,83 @@
-:root {
-  --toolbar-bg: var(--toolbar-bg, #f3f4f6);
-  --toolbar-btn-bg: var(--toolbar-btn-bg, white);
-  --toolbar-btn-hover-bg: var(--toolbar-btn-hover-bg, #e5e7eb);
-  --editor-bg: var(--editor-bg, white);
-  --preview-bg: var(--preview-bg, #f8f8f8);
-} /* General styles */
+.markdown-editor {
+  --me-bg: #ffffff;
+  --me-fg: #111827;
+  --me-border: #e5e7eb;
+  --me-radius: 0.5rem;
+  --me-accent: #4f46e5;
+  --toolbar-bg: #f3f4f6;
+  --toolbar-btn-bg: #ffffff;
+  --toolbar-btn-fg: #374151;
+  --toolbar-btn-border: #e5e7eb;
+  --toolbar-btn-hover-bg: #e5e7eb;
+  --editor-bg: #ffffff;
+  --editor-fg: #111827;
+  --preview-bg: #fafafa;
+  --preview-fg: #111827;
+  --preview-border: #e5e7eb;
+  --preview-code-bg: #f3f4f6;
+  --preview-code-fg: #1f2937;
+
+  color: var(--me-fg);
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.markdown-editor[data-theme="dark"] {
+  --me-bg: #09090b;
+  --me-fg: #f4f4f5;
+  --me-border: #27272a;
+  --me-accent: #818cf8;
+  --toolbar-bg: #18181b;
+  --toolbar-btn-bg: #27272a;
+  --toolbar-btn-fg: #e4e4e7;
+  --toolbar-btn-border: #3f3f46;
+  --toolbar-btn-hover-bg: #3f3f46;
+  --editor-bg: #09090b;
+  --editor-fg: #f4f4f5;
+  --preview-bg: #101013;
+  --preview-fg: #e4e4e7;
+  --preview-border: #27272a;
+  --preview-code-bg: #18181b;
+  --preview-code-fg: #e4e4e7;
+}
+
+.markdown-editor[data-theme="dracula"] {
+  --me-bg: #282a36;
+  --me-fg: #f8f8f2;
+  --me-border: #44475a;
+  --me-accent: #bd93f9;
+  --toolbar-bg: #21222c;
+  --toolbar-btn-bg: #343746;
+  --toolbar-btn-fg: #f8f8f2;
+  --toolbar-btn-border: #44475a;
+  --toolbar-btn-hover-bg: #44475a;
+  --editor-bg: #282a36;
+  --editor-fg: #f8f8f2;
+  --preview-bg: #21222c;
+  --preview-fg: #f8f8f2;
+  --preview-border: #44475a;
+  --preview-code-bg: #191a21;
+  --preview-code-fg: #50fa7b;
+}
+
+.markdown-editor[data-theme="minimal"] {
+  --me-bg: transparent;
+  --me-fg: inherit;
+  --me-border: transparent;
+  --me-radius: 0;
+  --me-accent: currentColor;
+  --toolbar-bg: transparent;
+  --toolbar-btn-bg: transparent;
+  --toolbar-btn-fg: inherit;
+  --toolbar-btn-border: transparent;
+  --toolbar-btn-hover-bg: rgba(128, 128, 128, 0.15);
+  --editor-bg: transparent;
+  --editor-fg: inherit;
+  --preview-bg: transparent;
+  --preview-fg: inherit;
+  --preview-border: transparent;
+  --preview-code-bg: rgba(128, 128, 128, 0.12);
+  --preview-code-fg: inherit;
+}
 
 .markdown-editor.fullscreen {
   position: fixed;
@@ -13,25 +86,7 @@
   right: 0;
   bottom: 0;
   z-index: 50;
-  background-color: var(--editor-bg);
-}
-
-.toolbar {
-  background-color: var(--toolbar-bg);
-}
-
-.toolbar-button {
-  background-color: var(--toolbar-btn-bg);
-}
-
-.toolbar-button:hover {
-  background-color: var(--toolbar-btn-hover-bg);
-}
-
-.editor {
-  background-color: var(--editor-bg);
-}
-
-.preview {
-  background-color: var(--preview-bg);
+  background-color: var(--me-bg);
+  padding: 1rem;
+  overflow: auto;
 }

@@ -3,10 +3,38 @@
 A React component to edit and preview Markdown, with toolbar presets and Mermaid diagram support.
 
 ![Editor](https://raw.githubusercontent.com/alesima/react-simple-markdown-editor/master/assets/screenshots/editor.png)
-*Editing with the default toolbar*
+*Editing with the default toolbar (light theme)*
 
 ![Preview](https://raw.githubusercontent.com/alesima/react-simple-markdown-editor/master/assets/screenshots/preview.png)
 *Live preview with rendered Mermaid diagram*
+
+## Themes
+
+Built-in themes via `config.theme`: `light` (default), `dark`, `dracula`, `minimal` — or `custom` with your own colors:
+
+![Dark preview](https://raw.githubusercontent.com/alesima/react-simple-markdown-editor/master/assets/screenshots/preview-dark.png)
+*Dark theme preview*
+
+![Dracula editor](https://raw.githubusercontent.com/alesima/react-simple-markdown-editor/master/assets/screenshots/editor-dracula.png)
+*Dracula theme editor*
+
+```tsx
+<MarkdownEditor value={value} onChange={setValue} config={{ theme: "dark" }} />
+
+<MarkdownEditor
+  value={value}
+  onChange={setValue}
+  config={{
+    theme: "custom",
+    colors: {
+      toolbarBg: "#111111",
+      editorBg: "#000000",
+      editorFg: "#ffffff",
+      accent: "#d4ff5f",
+    },
+  }}
+/>
+```
 
 ## Installation
 
@@ -45,7 +73,7 @@ export function App() {
 | `onChange`     | `(v) => void` | —   | Called with the new content on every change, including toolbar insertions |
 | `rows`         | `number`  | `5`     | Visible textarea rows                         |
 | `previewMode`  | `boolean` | `false` | Start with the preview open                   |
-| `config`       | `MarkdownEditorConfig` | default preset | Toolbar preset or custom button list |
+| `config`       | `MarkdownEditorConfig` | default preset | Toolbar preset, theme and custom colors |
 
 ### Toolbar presets
 

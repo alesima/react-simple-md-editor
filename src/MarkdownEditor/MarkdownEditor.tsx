@@ -44,14 +44,19 @@ const MarkdownEditor: React.FC<MarkdownEditorProps> = ({
   const themeStyle = {
     "--toolbar-bg": config.colors?.toolbarBg,
     "--toolbar-btn-bg": config.colors?.toolbarBtnBg,
+    "--toolbar-btn-fg": config.colors?.toolbarBtnFg,
     "--toolbar-btn-hover-bg": config.colors?.toolbarBtnHoverBg,
     "--editor-bg": config.colors?.editorBg,
+    "--editor-fg": config.colors?.editorFg,
     "--preview-bg": config.colors?.previewBg,
+    "--preview-fg": config.colors?.previewFg,
+    "--me-accent": config.colors?.accent,
   } as React.CSSProperties;
 
   return (
     <div
       className={`markdown-editor ${isFullscreen ? "fullscreen" : ""}`}
+      data-theme={config.theme ?? "light"}
       style={themeStyle}
     >
       <Toolbar
