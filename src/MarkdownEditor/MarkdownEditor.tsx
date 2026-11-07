@@ -27,10 +27,14 @@ const MarkdownEditor: React.FC<MarkdownEditorProps> = ({
   const {
     value: markdownValue,
     setValue,
-    handleInsertMarkdown,
+    handleInsertMarkdown: insertMarkdown,
     setSelectionStart,
     setSelectionEnd,
   } = useMarkdown(value);
+
+  const handleInsertMarkdown = (prefix: string, suffix = "") => {
+    onChange(insertMarkdown(prefix, suffix));
+  };
 
   const toolbarButtons = useToolbar(config, handleInsertMarkdown);
 

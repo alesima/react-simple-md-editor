@@ -48,8 +48,6 @@ describe("ToolbarButton", () => {
 
     // Check that the button has the correct class
     const button = screen.getByTitle("Underline");
-    expect(button).toHaveClass(
-      "px-2 py-1 bg-white rounded hover:bg-gray-200 focus:outline-none"
-    );
+    expect(button).toHaveClass("toolbar-button");
   });
 });

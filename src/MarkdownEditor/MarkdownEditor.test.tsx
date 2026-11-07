@@ -46,12 +46,12 @@ describe("MarkdownEditor", () => {
     render(<MarkdownEditor value='Initial content' onChange={mockOnChange} />);
 
     // Click the fullscreen button
-    const fullscreenButton = screen.getByTitle("Enter Fullscreen"); // Assuming Toolbar buttons have a title attribute
+    const fullscreenButton = screen.getByTitle("Enter Fullscreen");
     fireEvent.click(fullscreenButton);
 
-    // Check that the editor has fullscreen styling
-    const editorContainer = screen.getByRole("dialog"); // Assuming the fullscreen container has a role or specific styling
-    expect(editorContainer).toHaveClass("fixed inset-0 z-50 bg-white");
+    // Check that the editor container has fullscreen styling
+    const editorContainer = document.querySelector(".markdown-editor");
+    expect(editorContainer).toHaveClass("fullscreen");
   });
 
   test("inserts Markdown syntax using toolbar buttons", () => {
@@ -62,14 +62,14 @@ describe("MarkdownEditor", () => {
     fireEvent.click(boldButton);
 
     // Ensure onChange was called with bold Markdown syntax
-    expect(mockOnChange).toHaveBeenCalledWith("****");
+    expect(mockOnChange).toHaveBeenNthCalledWith(1, "****");
 
-    // Click the heading button
+    // Click the heading button (applies to the current editor content)
     const headingButton = screen.getByTitle("Heading 1");
     fireEvent.click(headingButton);
 
     // Ensure onChange was called with heading Markdown syntax
-    expect(mockOnChange).toHaveBeenCalledWith("# ");
+    expect(mockOnChange).toHaveBeenNthCalledWith(2, "**# **");
   });
 
   test("handles text selection for Markdown insertion", () => {

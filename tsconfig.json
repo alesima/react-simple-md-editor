@@ -28,9 +28,7 @@
       "@utils/*": ["src/utils/*"]
     },
     "typeRoots": ["node_modules/@types"], // Look for type definitions in `node_modules/@types`
-    "incremental": true, // Enable incremental builds
-    "tsBuildInfoFile": "./dist/.tsbuildinfo", // Cache file for incremental builds
-    "types": ["jest", "@testing-library/jest-dom"]
+    "types": ["jest"] // Auto-load only these during dev/test
   },
   "include": ["src/**/*"], // Include the source folder for compilation
   "exclude": ["node_modules", "dist"] // Exclude unnecessary files and folders

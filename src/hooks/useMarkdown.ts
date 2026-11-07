@@ -17,6 +17,7 @@ export const useMarkdown = (initialValue: string) => {
     setValue(newValue);
     setSelectionStart(newSelectionStart);
     setSelectionEnd(newSelectionEnd);
+    return newValue;
   };
 
   return {

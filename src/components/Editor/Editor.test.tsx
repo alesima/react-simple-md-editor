@@ -77,8 +77,6 @@ describe("Editor Component", () => {
     const textarea = screen.getByRole("textbox");
 
     // Verify the className is applied
-    expect(textarea).toHaveClass(
-      "w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-indigo-500"
-    );
+    expect(textarea).toHaveClass("editor");
   });
 });

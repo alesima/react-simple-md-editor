@@ -1,0 +1,57 @@
+name: Publish to npm
+
+on:
+  push:
+    tags: ["v*"]
+  release:
+    types: [published]
+  workflow_dispatch:
+
+jobs:
+  publish:
+    name: Publish to npm
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - run: npx tsc --noEmit -p tsconfig.json
+
+      - run: npm run lint
+
+      - run: npm test
+
+      - run: npm run build
+
+      - name: Update npm for OIDC support
+        run: npm install -g npm@latest
+
+      - name: Verify tag matches version
+        run: |
+          TAG="${GITHUB_REF#refs/tags/}"
+          VER=$(node -p "require('./package.json').version")
+          if [ -n "$TAG" ] && [ "$TAG" != "main" ] && [ "$TAG" != "master" ] && [ "v$VER" != "$TAG" ]; then
+            echo "Tag $TAG does not match package.json version $VER"
+            exit 1
+          fi
+
+      - name: Publish package (npm Trusted Publishing, no static token)
+        run: |
+          unset NODE_AUTH_TOKEN || true
+          PKG=$(node -p "require('./package.json').name")
+          VER=$(node -p "require('./package.json').version")
+          if npm view "$PKG@$VER" version >/dev/null 2>&1; then
+            echo "$PKG@$VER already on registry, skipping publish"
+          else
+            npm publish
+          fi
